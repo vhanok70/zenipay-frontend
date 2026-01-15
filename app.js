@@ -1,12 +1,57 @@
-let screen = "dashboard";
+let screen = "login";
 
 function render() {
+  if (screen === "login") loginScreen();
+  if (screen === "signup") signupScreen();
+  if (screen === "otp") otpScreen();
   if (screen === "dashboard") dashboardScreen();
-  if (screen === "send") sendScreen();
-  if (screen === "upi") upiScreen();
-  if (screen === "bank") bankScreen();
 }
 
+/* LOGIN */
+function loginScreen() {
+  document.getElementById("app").innerHTML = `
+    <div class="header">Zenipay</div>
+    <div class="container">
+      <div class="auth-card">
+        <h2>Login</h2>
+        <input class="input" placeholder="Mobile Number" />
+        <button class="primary-btn" onclick="screen='otp';render()">Send OTP</button>
+        <p class="link" onclick="screen='signup';render()">New user? Sign up</p>
+      </div>
+    </div>
+  `;
+}
+
+/* SIGN UP */
+function signupScreen() {
+  document.getElementById("app").innerHTML = `
+    <div class="header">Zenipay</div>
+    <div class="container">
+      <div class="auth-card">
+        <h2>Create Account</h2>
+        <input class="input" placeholder="Full Name" />
+        <input class="input" placeholder="Mobile Number" />
+        <button class="primary-btn" onclick="screen='otp';render()">Register & Send OTP</button>
+        <p class="link" onclick="screen='login';render()">Already have account? Login</p>
+      </div>
+    </div>
+  `;
+}
+
+/* OTP */
+function otpScreen() {
+  document.getElementById("app").innerHTML = `
+    <div class="header">Verify OTP</div>
+    <div class="container">
+      <div class="auth-card">
+        <input class="input" placeholder="Enter OTP" />
+        <button class="primary-btn" onclick="screen='dashboard';render()">Verify</button>
+      </div>
+    </div>
+  `;
+}
+
+/* DASHBOARD */
 function dashboardScreen() {
   document.getElementById("app").innerHTML = `
     <div class="header">Zenipay</div>
@@ -17,48 +62,10 @@ function dashboardScreen() {
       </div>
 
       <div class="actions">
-        <div class="action-btn" onclick="screen='send';render()">Send</div>
+        <div class="action-btn">Send</div>
         <div class="action-btn">Receive</div>
         <div class="action-btn">History</div>
       </div>
-    </div>
-  `;
-}
-
-function sendScreen() {
-  document.getElementById("app").innerHTML = `
-    <div class="header">Send Money</div>
-    <div class="container">
-      <div class="action-btn" onclick="screen='upi';render()">Send via UPI</div>
-      <div class="action-btn" onclick="screen='bank';render()">Send to Bank</div>
-      <br/>
-      <button class="secondary-btn" onclick="screen='dashboard';render()">Back</button>
-    </div>
-  `;
-}
-
-function upiScreen() {
-  document.getElementById("app").innerHTML = `
-    <div class="header">UPI Transfer</div>
-    <div class="container">
-      <input class="input" placeholder="UPI ID (example@upi)" />
-      <input class="input" placeholder="Amount ₹" type="number" />
-      <button class="primary-btn">Pay</button>
-      <button class="secondary-btn" onclick="screen='send';render()">Back</button>
-    </div>
-  `;
-}
-
-function bankScreen() {
-  document.getElementById("app").innerHTML = `
-    <div class="header">Bank Transfer</div>
-    <div class="container">
-      <input class="input" placeholder="Account Holder Name" />
-      <input class="input" placeholder="Account Number" />
-      <input class="input" placeholder="IFSC Code" />
-      <input class="input" placeholder="Amount ₹" type="number" />
-      <button class="primary-btn">Send</button>
-      <button class="secondary-btn" onclick="screen='send';render()">Back</button>
     </div>
   `;
 }
