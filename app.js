@@ -1,3 +1,4 @@
+trackEvent("APP_OPEN");
 let screen = "login";
 
 function render() {
@@ -15,7 +16,7 @@ function loginScreen() {
       <div class="auth-card">
         <h2>Login</h2>
         <input class="input" placeholder="Mobile Number" />
-        <button class="primary-btn" onclick="screen='otp';render()">Send OTP</button>
+        <button class="primary-btn" onclick="trackEvent('LOGIN_OTP_REQUEST',{method:'mobile'});screen='otp';render();">Send OTP</button>
         <p class="link" onclick="screen='signup';render()">New user? Sign up</p>
       </div>
     </div>
