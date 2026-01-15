@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: white;
+}
+.header {
+  padding: 16px;
+  background: #020617;
+}
+.card {
+  margin: 16px;
+  padding: 16px;
+  background: #020617;
+  border-radius: 12px;
+}
