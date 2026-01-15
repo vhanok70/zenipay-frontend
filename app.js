@@ -1,4 +1,6 @@
-trackEvent("APP_OPEN");
+if (typeof trackEvent === "function") {
+  trackEvent("APP_OPEN");
+}
 let screen = "login";
 
 function render() {
