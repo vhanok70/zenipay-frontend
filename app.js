@@ -10,6 +10,7 @@ function verifyOtp() {
   })
   .then(r => r.json())
   .then(d => {
+    localStorage.setItem("token", d.token);
     console.log("VERIFY RESPONSE:", d);
     screen = "dashboard";
     render();
