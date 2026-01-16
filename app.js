@@ -65,7 +65,7 @@ function dashboardScreen() {
       </div>
 
       <div class="actions">
-        <div class="action-btn">Send</div>
+        <div class="action-btn" onclick="screen='send';render()">Send</div>
         <div class="action-btn">Receive</div>
         <div class="action-btn">History</div>
       </div>
