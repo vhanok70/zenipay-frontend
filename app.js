@@ -1,5 +1,24 @@
 const API_BASE_URL = "https://zenipay-backend.onrender.com";
 let currentMobile = "";
+function authHeaders() {
+  return {
+    "Content-Type": "application/json",
+    "Authorization": "Bearer " + localStorage.getItem("token")
+  };
+}
+function sendMoney() {
+  const toMobile = document.getElementById("toMobile").value;
+  const amount = document.getElementById("amount").value;
+
+  fetch(API_BASE_URL + "/transactions/send", {
+    method: "POST",
+    headers: authHeaders(),
+    body: JSON.stringify({ toMobile, amount })
+  })
+  .then(r => r.json())
+  .then(d => alert("Success: " + d.txnId))
+  .catch(() => alert("Send failed"));
+}
 function verifyOtp() {
   const otp = document.querySelector("input").value;
 
