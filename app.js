@@ -9,11 +9,11 @@ function sendLoginOtp() {
   })
   .then(r => r.json())
   .then(d => {
-    console.log(d);
+    console.log("OTP RESPONSE:", d);
     screen = "otp";
     render();
   })
-  .catch(e => alert("API error"));
+  .catch(() => alert("API error"));
 }
 fetch(API_BASE_URL)
   .then(r => r.json())
