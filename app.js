@@ -2,10 +2,10 @@ const API_BASE_URL = "https://zenipay-backend.onrender.com";
 function sendLoginOtp() {
   const mobile = document.querySelector("input").value;
 
-  fetch(API_BASE_URL + "/auth/login", {
+  fetch(API_BASE_URL + "/auth/send-otp", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ mobile })
+    body: JSON.stringify({ mobile, purpose: "LOGIN" })
   })
   .then(r => r.json())
   .then(d => {
