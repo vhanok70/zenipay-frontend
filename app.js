@@ -149,7 +149,7 @@ function dashboardScreen() {
 
   <div class="hero">
     <div class="hero-title">Total Balance</div>
-    <div class="hero-amount">₹0.00</div>
+    <div class="hero-amount" id="balance">₹0.00</div>
     <div class="hero-sub">Rewards earned this month: ₹0</div>
   </div>
 
@@ -173,6 +173,7 @@ function dashboardScreen() {
     <div onclick="screen='profile';render()">You</div>
   </div>
   `;
+  loadBalance();
 }
 /* SEND SCREEN */
 function sendScreen() {
