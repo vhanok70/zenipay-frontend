@@ -71,10 +71,11 @@ function dashboardScreen() {
       </div>
 
       <div class="actions">
-        <div class="action-btn" onclick="screen='send';render()">Send</div>
-        <div class="action-btn" onclick="screen='offers';render()">Offers</div>
-        <div class="action-btn" onclick="screen='history';render()">History</div>
-      </div>
+  <div class="action-btn" onclick="screen='send';render()">Send</div>
+  <div class="action-btn" onclick="screen='offers';render()">Offers</div>
+  <div class="action-btn" onclick="screen='history';render()">History</div>
+  <div class="action-btn" onclick="screen='profile';render()">Profile</div>
+</div>
     </div>
   `;
 }
