@@ -68,7 +68,7 @@ function loginScreen() {
       <div class="card">
         <label style="font-size:13px;opacity:.7">Mobile number</label>
         <input class="input" placeholder="Enter 10-digit number" />
-        <button class="primary-btn" onclick="sendLoginOtp()">Continue</button>
+        <button class="primary-btn" onclick="verifyOtp()">Verify</button>
         <p style="text-align:center;margin-top:12px;opacity:.7">
           New here?
           <span style="color:#3b82f6" onclick="screen='signup';render()">Create account</span>
