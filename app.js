@@ -78,12 +78,21 @@ function dashboardScreen() {
 </div>
     </div>
   `;
-  <div class="bottom-nav">
-  <div onclick="screen='dashboard';render()">Home</div>
-  <div onclick="screen='send';render()">Send</div>
-  <div onclick="screen='offers';render()">Offers</div>
-  <div onclick="screen='profile';render()">Profile</div>
-</div>
+  function dashboardScreen() {
+  document.getElementById("app").innerHTML = `
+    <div class="header">Zenipay</div>
+    <div class="container">
+      <div class="card">Dashboard Loaded</div>
+    </div>
+
+    <div class="bottom-nav">
+      <div onclick="screen='dashboard';render()">Home</div>
+      <div onclick="screen='send';render()">Send</div>
+      <div onclick="screen='offers';render()">Offers</div>
+      <div onclick="screen='profile';render()">Profile</div>
+    </div>
+  `;
+  }
 }
 
 render();
@@ -226,3 +235,4 @@ function profileScreen() {
     </div>
   `;
 }
+render();
