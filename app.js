@@ -67,7 +67,7 @@ function dashboardScreen() {
       <div class="actions">
         <div class="action-btn" onclick="screen='send';render()">Send</div>
         <div class="action-btn">Receive</div>
-        <div class="action-btn">History</div>
+        <div class="action-btn" onclick="screen='history';render()">History</div>
       </div>
     </div>
   `;
@@ -123,6 +123,32 @@ function bankScreen() {
         oninput="trackEvent('PAYMENT_INTENT',{method:'bank'})"/>
       <button class="primary-btn">Send</button>
       <button class="secondary-btn" onclick="screen='send';render()">Back</button>
+    </div>
+  `;
+}
+/* HISTORY SCREEN */
+function historyScreen() {
+  trackEvent("SCREEN_VIEW", { screen: "history" });
+
+  document.getElementById("app").innerHTML = `
+    <div class="header">Transaction History</div>
+    <div class="container">
+      <div class="card">
+        <div>UPI Payment</div>
+        <small>₹500 • Success</small>
+      </div>
+
+      <div class="card">
+        <div>Bank Transfer</div>
+        <small>₹1200 • Pending</small>
+      </div>
+
+      <div class="card">
+        <div>Recharge</div>
+        <small>₹299 • Failed</small>
+      </div>
+
+      <button class="secondary-btn" onclick="screen='dashboard';render()">Back</button>
     </div>
   `;
 }
