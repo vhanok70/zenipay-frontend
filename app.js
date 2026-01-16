@@ -169,15 +169,11 @@ function sendScreen() {
   document.getElementById("app").innerHTML = `
     <div class="header">Send Money</div>
     <div class="container">
-      <div class="action-btn" onclick="screen='upi';render();trackEvent('SEND_OPTION',{type:'upi'});">
-        Send via UPI
+      <input id="toMobile" class="input" placeholder="Receiver mobile" />
+<input id="amount" class="input" placeholder="Amount" type="number" />
+<button class="primary-btn" onclick="sendMoney()">Send</button>
+<button class="secondary-btn" onclick="screen='dashboard';render()">Back</button>
       </div>
-      <div class="action-btn" onclick="screen='bank';render();trackEvent('SEND_OPTION',{type:'bank'});">
-        Send to Bank
-      </div>
-
-      <button class="secondary-btn" onclick="screen='dashboard';render()">Back</button>
-    </div>
   `;
 }
 
