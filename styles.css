@@ -112,3 +112,68 @@ body {
   font-size: 13px;
   opacity: 0.8;
 }
+body { background:#0b1220; color:#fff; font-family:Inter,system-ui }
+
+.top-bar{
+  display:flex;justify-content:space-between;
+  padding:14px 16px;font-weight:600
+}
+.avatar{
+  background:#2563eb;border-radius:50%;
+  width:34px;height:34px;display:flex;
+  align-items:center;justify-content:center
+}
+
+.hero{
+  margin:16px;
+  padding:20px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#2563eb,#0ea5e9);
+}
+.hero-title{opacity:.8;font-size:13px}
+.hero-amount{font-size:34px;font-weight:700}
+.hero-sub{opacity:.8;font-size:13px}
+
+.quick-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin:16px;
+}
+.quick-card{
+  background:#111827;
+  border-radius:16px;
+  padding:14px 8px;
+  text-align:center;
+  font-size:20px;
+  transition:.15s;
+}
+.quick-card span{
+  display:block;font-size:12px;margin-top:6px;opacity:.8
+}
+.quick-card:active{transform:scale(.95)}
+
+.insight{
+  margin:16px;
+  padding:16px;
+  border-radius:16px;
+  background:#111827;
+}
+.insight p{opacity:.75;font-size:13px}
+
+.ghost-btn{
+  margin-top:10px;
+  background:transparent;
+  border:1px solid #2563eb;
+  color:#60a5fa;
+  padding:8px 12px;
+  border-radius:10px;
+}
+
+.bottom-nav{
+  position:fixed;bottom:0;left:0;right:0;
+  display:flex;justify-content:space-around;
+  background:#020617;padding:10px 0
+}
+.bottom-nav div{opacity:.6}
+.bottom-nav .active{opacity:1;color:#60a5fa}
