@@ -20,12 +20,22 @@ function render() {
 function loginScreen() {
   document.getElementById("app").innerHTML = `
     <div class="header">Zenipay</div>
+
     <div class="container">
-      <div class="auth-card">
-        <h2>Login</h2>
-        <input class="input" placeholder="Mobile Number" />
-        <button class="primary-btn" onclick="trackEvent('LOGIN_OTP_REQUEST',{method:'mobile'});screen='otp';render();">Send OTP</button>
-        <p class="link" onclick="screen='signup';render()">New user? Sign up</p>
+      <div class="card" style="text-align:center">
+        <h2 style="margin:0 0 6px">Welcome to Zenipay</h2>
+        <p style="opacity:.7;margin:0">Smart payments. Smart rewards.</p>
+      </div>
+
+      <div class="card">
+        <label style="font-size:13px;opacity:.7">Mobile number</label>
+        <input class="input" placeholder="Enter 10-digit number" />
+        <button class="primary-btn" onclick="screen='otp';render()">Continue</button>
+
+        <p style="text-align:center;margin-top:12px;opacity:.7">
+          New here?
+          <span style="color:#3b82f6" onclick="screen='signup';render()">Create account</span>
+        </p>
       </div>
     </div>
   `;
