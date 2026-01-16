@@ -1,5 +1,14 @@
 const API_BASE_URL = "https://zenipay-backend.onrender.com";
 let currentMobile = "";
+function loadBalance() {
+  fetch(API_BASE_URL + "/wallet/balance", {
+    headers: authHeaders()
+  })
+    .then(r => r.json())
+    .then(d => {
+      document.getElementById("balance").innerText = "₹" + d.balance;
+    });
+}
 function authHeaders() {
   return {
     "Content-Type": "application/json",
