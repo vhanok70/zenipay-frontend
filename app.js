@@ -1,3 +1,4 @@
+const API_BASE_URL = "https://zenipay-backend.onrender.com";
 if (typeof trackEvent === "function") {
   trackEvent("APP_OPEN");
 }
