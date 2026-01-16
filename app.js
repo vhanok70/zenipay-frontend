@@ -1,4 +1,20 @@
 const API_BASE_URL = "https://zenipay-backend.onrender.com";
+function sendLoginOtp() {
+  const mobile = document.querySelector("input").value;
+
+  fetch(API_BASE_URL + "/auth/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ mobile })
+  })
+  .then(r => r.json())
+  .then(d => {
+    console.log(d);
+    screen = "otp";
+    render();
+  })
+  .catch(e => alert("API error"));
+}
 fetch(API_BASE_URL)
   .then(r => r.json())
   .then(d => console.log("API OK:", d))
@@ -35,8 +51,7 @@ function loginScreen() {
       <div class="card">
         <label style="font-size:13px;opacity:.7">Mobile number</label>
         <input class="input" placeholder="Enter 10-digit number" />
-        <button class="primary-btn" onclick="screen='otp';render()">Continue</button>
-
+        <button class="primary-btn" onclick="sendLoginOtp()">Continue</button>
         <p style="text-align:center;margin-top:12px;opacity:.7">
           New here?
           <span style="color:#3b82f6" onclick="screen='signup';render()">Create account</span>
