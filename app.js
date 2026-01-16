@@ -184,3 +184,37 @@ function offersScreen() {
     </div>
   `;
 }
+/* PROFILE SCREEN */
+function profileScreen() {
+  trackEvent("SCREEN_VIEW", { screen: "profile" });
+
+  document.getElementById("app").innerHTML = `
+    <div class="header">Profile</div>
+    <div class="container">
+
+      <div class="card">
+        <strong>User Details</strong>
+        <p>Name: User</p>
+        <p>Mobile: **********</p>
+      </div>
+
+      <div class="card">
+        <strong>Bank Account</strong>
+        <p>Status: Not Linked</p>
+        <button class="primary-btn" onclick="trackEvent('BANK_LINK_START')">
+          Add Bank Account
+        </button>
+      </div>
+
+      <div class="card">
+        <strong>KYC</strong>
+        <p>Status: Pending</p>
+        <button class="primary-btn" onclick="trackEvent('KYC_START')">
+          Complete KYC
+        </button>
+      </div>
+
+      <button class="secondary-btn" onclick="screen='dashboard';render()">Back</button>
+    </div>
+  `;
+}
