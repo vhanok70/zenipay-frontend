@@ -74,3 +74,55 @@ function dashboardScreen() {
 }
 
 render();
+/* SEND SCREEN */
+function sendScreen() {
+  trackEvent("SCREEN_VIEW", { screen: "send" });
+
+  document.getElementById("app").innerHTML = `
+    <div class="header">Send Money</div>
+    <div class="container">
+      <div class="action-btn" onclick="screen='upi';render();trackEvent('SEND_OPTION',{type:'upi'});">
+        Send via UPI
+      </div>
+      <div class="action-btn" onclick="screen='bank';render();trackEvent('SEND_OPTION',{type:'bank'});">
+        Send to Bank
+      </div>
+
+      <button class="secondary-btn" onclick="screen='dashboard';render()">Back</button>
+    </div>
+  `;
+}
+
+/* UPI SCREEN */
+function upiScreen() {
+  trackEvent("SCREEN_VIEW", { screen: "upi" });
+
+  document.getElementById("app").innerHTML = `
+    <div class="header">UPI Transfer</div>
+    <div class="container">
+      <input class="input" placeholder="UPI ID (example@upi)" />
+      <input class="input" type="number" placeholder="Amount ₹" 
+        oninput="trackEvent('PAYMENT_INTENT',{method:'upi'})"/>
+      <button class="primary-btn">Pay</button>
+      <button class="secondary-btn" onclick="screen='send';render()">Back</button>
+    </div>
+  `;
+}
+
+/* BANK SCREEN */
+function bankScreen() {
+  trackEvent("SCREEN_VIEW", { screen: "bank" });
+
+  document.getElementById("app").innerHTML = `
+    <div class="header">Bank Transfer</div>
+    <div class="container">
+      <input class="input" placeholder="Account Holder Name" />
+      <input class="input" placeholder="Account Number" />
+      <input class="input" placeholder="IFSC Code" />
+      <input class="input" type="number" placeholder="Amount ₹"
+        oninput="trackEvent('PAYMENT_INTENT',{method:'bank'})"/>
+      <button class="primary-btn">Send</button>
+      <button class="secondary-btn" onclick="screen='send';render()">Back</button>
+    </div>
+  `;
+}
