@@ -1,11 +1,28 @@
 const API_BASE_URL = "https://zenipay-backend.onrender.com";
+let currentMobile = "";
+function verifyOtp() {
+  const otp = document.querySelector("input").value;
+
+  fetch(API_BASE_URL + "/auth/verify-otp", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ mobile: currentMobile, otp })
+  })
+  .then(r => r.json())
+  .then(d => {
+    console.log("VERIFY RESPONSE:", d);
+    screen = "dashboard";
+    render();
+  })
+  .catch(() => alert("OTP verify failed"));
+}
 function sendLoginOtp() {
-  const mobile = document.querySelector("input").value;
+  currentMobile = document.querySelector("input").value;
 
   fetch(API_BASE_URL + "/auth/send-otp", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ mobile, purpose: "LOGIN" })
+    body: JSON.stringify({ mobile: currentMobile, purpose: "LOGIN" })
   })
   .then(r => r.json())
   .then(d => {
@@ -84,7 +101,7 @@ function otpScreen() {
     <div class="container">
       <div class="auth-card">
         <input class="input" placeholder="Enter OTP" />
-        <button class="primary-btn" onclick="screen='dashboard';render()">Verify</button>
+        <button class="primary-btn" onclick="verifyOtp()">Verify</button>
       </div>
     </div>
   `;
