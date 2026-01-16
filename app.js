@@ -8,6 +8,11 @@ function render() {
   if (screen === "signup") signupScreen();
   if (screen === "otp") otpScreen();
   if (screen === "dashboard") dashboardScreen();
+  if (screen === "send") sendScreen();
+  if (screen === "upi") upiScreen();
+  if (screen === "bank") bankScreen();
+  if (screen === "history") historyScreen();
+  if (screen === "offers") offersScreen();
 }
 
 /* LOGIN */
@@ -66,7 +71,7 @@ function dashboardScreen() {
 
       <div class="actions">
         <div class="action-btn" onclick="screen='send';render()">Send</div>
-        <div class="action-btn">Receive</div>
+        <div class="action-btn" onclick="screen='offers';render()">Offers</div>
         <div class="action-btn" onclick="screen='history';render()">History</div>
       </div>
     </div>
@@ -146,6 +151,33 @@ function historyScreen() {
       <div class="card">
         <div>Recharge</div>
         <small>₹299 • Failed</small>
+      </div>
+
+      <button class="secondary-btn" onclick="screen='dashboard';render()">Back</button>
+    </div>
+  `;
+}
+/* OFFERS SCREEN */
+function offersScreen() {
+  trackEvent("SCREEN_VIEW", { screen: "offers" });
+
+  document.getElementById("app").innerHTML = `
+    <div class="header">Offers & Rewards</div>
+    <div class="container">
+
+      <div class="card" onclick="trackEvent('OFFER_VIEW',{id:'cashback_10'})">
+        <div>💸 10% Cashback</div>
+        <small>On first UPI payment • Max ₹50</small>
+      </div>
+
+      <div class="card" onclick="trackEvent('OFFER_VIEW',{id:'recharge_25'})">
+        <div>📱 ₹25 Recharge Bonus</div>
+        <small>Minimum recharge ₹199</small>
+      </div>
+
+      <div class="card" onclick="trackEvent('OFFER_VIEW',{id:'refer_100'})">
+        <div>🤝 Refer & Earn ₹100</div>
+        <small>When friend completes first payment</small>
       </div>
 
       <button class="secondary-btn" onclick="screen='dashboard';render()">Back</button>
