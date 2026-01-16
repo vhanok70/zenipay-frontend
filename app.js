@@ -64,38 +64,45 @@ function otpScreen() {
 function dashboardScreen() {
   document.getElementById("app").innerHTML = `
     <div class="header">Zenipay</div>
+
     <div class="container">
+
+      <!-- SMART BALANCE -->
       <div class="balance-card">
-        <div>Wallet Balance</div>
+        <div>Smart Balance</div>
         <div class="balance-amount">₹0.00</div>
+        <small>You earned ₹0 rewards this month</small>
       </div>
 
-      <div class="actions">
-  <div class="action-btn" onclick="screen='send';render()">Send</div>
-  <div class="action-btn" onclick="screen='offers';render()">Offers</div>
-  <div class="action-btn" onclick="screen='history';render()">History</div>
-  <div class="action-btn" onclick="screen='profile';render()">Profile</div>
-</div>
-    </div>
-  `;
-  function dashboardScreen() {
-  document.getElementById("app").innerHTML = `
-    <div class="header">Zenipay</div>
-    <div class="container">
-      <div class="card">Dashboard Loaded</div>
+      <!-- INTENT CARD -->
+      <div class="card">
+        <strong>What do you want to do?</strong>
+        <div class="actions" style="margin-top:12px">
+          <div class="action-btn" onclick="screen='send';render()">Send Money</div>
+          <div class="action-btn" onclick="screen='offers';render()">Earn Rewards</div>
+          <div class="action-btn">Pay Bills</div>
+          <div class="action-btn">Save Money</div>
+        </div>
+      </div>
+
+      <!-- INSIGHT -->
+      <div class="card">
+        <strong>Zen Insight 💡</strong>
+        <p style="opacity:.7;margin-top:6px">
+          Complete KYC to unlock higher limits and cashback offers.
+        </p>
+      </div>
+
     </div>
 
     <div class="bottom-nav">
       <div onclick="screen='dashboard';render()">Home</div>
-      <div onclick="screen='send';render()">Send</div>
-      <div onclick="screen='offers';render()">Offers</div>
-      <div onclick="screen='profile';render()">Profile</div>
+      <div onclick="screen='send';render()">Pay</div>
+      <div onclick="screen='offers';render()">Rewards</div>
+      <div onclick="screen='profile';render()">You</div>
     </div>
   `;
-  }
 }
-
-render();
 /* SEND SCREEN */
 function sendScreen() {
   trackEvent("SCREEN_VIEW", { screen: "send" });
