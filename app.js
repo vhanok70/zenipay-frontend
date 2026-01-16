@@ -25,7 +25,10 @@ function verifyOtp() {
   fetch(API_BASE_URL + "/auth/verify-otp", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ mobile: currentMobile, otp })
+    body: JSON.stringify({
+      mobile: currentMobile,
+      otp: otp
+    })
   })
   .then(r => r.json())
   .then(d => {
