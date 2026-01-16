@@ -13,6 +13,7 @@ function render() {
   if (screen === "bank") bankScreen();
   if (screen === "history") historyScreen();
   if (screen === "offers") offersScreen();
+  if (screen === "profile") profileScreen();
 }
 
 /* LOGIN */
