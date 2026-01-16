@@ -1,4 +1,8 @@
 const API_BASE_URL = "https://zenipay-backend.onrender.com";
+fetch(API_BASE_URL)
+  .then(r => r.json())
+  .then(d => console.log("API OK:", d))
+  .catch(e => console.error("API ERR:", e));
 if (typeof trackEvent === "function") {
   trackEvent("APP_OPEN");
 }
